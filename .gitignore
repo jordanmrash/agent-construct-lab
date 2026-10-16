@@ -9,3 +9,5 @@ dist/
 build/
 Outputs/
 release4/release4-status.json
+CommandJobs/Logs/
+playwright-output/

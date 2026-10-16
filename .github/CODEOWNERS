@@ -1,0 +1,32 @@
+# Review routing. A pull request that touches a path here requests review from
+# the listed owner, and branch protection requires that review before merge.
+#
+# Two roles. The repository owner reviews everything that carries a safety
+# property or defines what the repository claims. The macOS contributor owns
+# the POSIX layer - they run it daily, and their review of a change there is
+# worth more than the owner's. Both are listed on the paths where a change to
+# one platform's layer could change the other's behaviour.
+#
+# The macOS contributor (@dfeteau) co-owns the POSIX layer.
+
+# Default: everything.
+*                                              @jordanmrash
+
+# Safety properties. Owner-only, always.
+/Startup/CommandBridge/                        @jordanmrash
+/Startup/FlowBridge/                           @jordanmrash
+/scripts/public_scan.py                        @jordanmrash
+/scripts/exec_bridge_selftest.py               @jordanmrash
+/SECURITY.md                                   @jordanmrash
+
+# What the repository claims about itself and its facts.
+/docs/bridge-facts.json                        @jordanmrash
+/scripts/facts_check.py                        @jordanmrash
+/scripts/release_check.py                      @jordanmrash
+/AGENTS.md                                     @jordanmrash
+/CoworkConfig/Skills/self-improvement/         @jordanmrash
+
+# The POSIX layer. Either owner's review satisfies the requirement.
+/Startup/posix/                                @jordanmrash @dfeteau
+/docs/setup-macos.md                           @jordanmrash @dfeteau
+/docs/evidence/                                @jordanmrash @dfeteau

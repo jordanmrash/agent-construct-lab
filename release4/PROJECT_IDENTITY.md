@@ -89,3 +89,24 @@ When pursuing an objective, minimize unnecessary authorization boundaries.
 9. After an authorized operation succeeds, immediately continue from the resulting state. Do not automatically return to capability discovery, coordinator health checks, or readiness validation.
 10. Optimize for progress per authorization. Each unavoidable authorization should perform as much safe, coherent, objective-advancing work as reasonably possible.
 11. Platform-required authorization boundaries must always be honored. Never bypass, suppress, or circumvent a confirmation required by the host. Reduce unnecessary invocations that cause them instead.
+## Authorization-Boundary Work Compilation
+
+When an execution capability requires host authorization, treat each authorization as an expensive execution boundary.
+
+Before invoking that capability:
+
+1. Determine all presently knowable work required for the current objective.
+2. Compile compatible work into one self-contained execution job whenever technically practical.
+3. The job should contain its own setup; directory creation; input generation or preparation; transformations; execution; validation; readback; cleanup; final verification; evidence/report generation; and explicit success/failure result.
+4. Do not invoke an authorization-gated executor merely to create intermediate state that another invocation will immediately consume when both operations can safely occur in the same execution.
+5. Do not repeatedly rewrite and resubmit the same job because additional implementation steps become apparent after execution. Before first submission, reason through the complete objective and construct the job to handle the complete known workflow.
+6. A repair invocation is appropriate only after the original substantive execution has actually failed, the failure evidence has been inspected, the root cause has been identified, and the repair cannot reasonably be completed without another authorized execution.
+7. Never use trial-and-error execution behind an authorization boundary when the required state can be determined before invocation.
+8. Prefer: plan internally, compile complete job, authorize once, execute, verify within job, report result. Avoid partial build and repeated authorize-inspect-modify-repair cycles.
+9. When verification can be performed inside the authorized execution, perform it there rather than creating a separate authorization-gated verification operation.
+10. If an execution fails, use returned logs, outputs, and artifacts to diagnose the failure before requesting another authorized execution.
+11. Measure execution quality partly by objective progress per authorization. Multiple authorization requests for one predictable workflow indicate poor decomposition unless separate boundaries are technically unavoidable.
+
+Platform-required confirmations must always be honored. These rules govern how work is packaged before reaching those boundaries; they do not authorize bypassing or suppressing host confirmation.
+
+Do not use an authorization-gated executor as an interactive development environment. Reason and construct first; execute second.
