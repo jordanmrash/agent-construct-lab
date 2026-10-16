@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "id": "microsoft-365-adapter",
+  "target": "microsoft-365",
+  "input_contract": "acl:agent-construct:1",
+  "outputs": ["declarative-agent-package", "mcp-action-declarations", "publication-package"],
+  "tool_mapping": {
+    "filesystem": "MCP filesystem action",
+    "command": "MCP governed command action",
+    "browser": "MCP browser action"
+  },
+  "host_specific": ["Microsoft 365 manifest", "declarative agent definition", "tenant publication configuration"],
+  "validation": {
+    "shared_required": true,
+    "adapter_required": true,
+    "publish_requires_approval": true
+  }
+}

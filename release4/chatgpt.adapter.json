@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "id": "chatgpt-adapter",
+  "target": "chatgpt",
+  "input_contract": "acl:agent-construct:1",
+  "outputs": ["app-instructions", "mcp-app-configuration", "action-definitions"],
+  "tool_mapping": {"filesystem": "MCP app", "command": "MCP app or governed REST action", "browser": "MCP app"},
+  "host_specific": ["ChatGPT app instructions", "workspace app configuration", "authentication configuration"],
+  "validation": {"shared_required": true, "adapter_required": true, "publish_requires_approval": true}
+}

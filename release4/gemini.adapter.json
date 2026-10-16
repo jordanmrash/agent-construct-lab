@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "id": "gemini-adapter",
+  "target": "gemini",
+  "input_contract": "acl:agent-construct:1",
+  "outputs": ["system-instructions", "function-declarations", "orchestration-configuration"],
+  "tool_mapping": {"filesystem": "function call through ACL gateway", "command": "function call through governed ACL gateway", "browser": "function call through ACL gateway"},
+  "host_specific": ["Gemini system instructions", "function declarations", "application orchestration"],
+  "validation": {"shared_required": true, "adapter_required": true, "publish_requires_approval": true}
+}

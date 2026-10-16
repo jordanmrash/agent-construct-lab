@@ -1,0 +1,35 @@
+{
+  "$schema": "https://<scrubbed-url-domain>/draft/2020-12/schema",
+  "$id": "acl:component-registry:1",
+  "title": "Agent Construct Lab Component Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "generated_at", "project", "components", "summary"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "project": { "const": "Agent Construct Lab" },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "category", "path", "kind", "sha256", "bytes", "status"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "category": { "enum": ["runtime", "schema", "template", "tool", "factory", "fixture-positive", "fixture-negative", "documentation"] },
+          "path": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["javascript", "json-schema", "json", "markdown", "data", "other"] },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "bytes": { "type": "integer", "minimum": 0 },
+          "status": { "enum": ["present", "duplicate-baseline", "needs-review"] }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 },
+      "required": ["total", "runtime", "schema", "template", "tool", "factory", "fixture-positive", "fixture-negative", "documentation"]
+    }
+  }
+}

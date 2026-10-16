@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "construct_id": "certified-workspace-agent",
+  "target": "replace-target",
+  "evaluated_at": "2026-09-29T00:00:00.000Z",
+  "results": [
+    {"criterion_id": "replace-criterion", "status": "could_not_run", "evidence": ["replace-with-evidence-path-or-reference"], "note": "Complete one result for every equivalence criterion."}
+  ]
+}

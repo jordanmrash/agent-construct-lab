@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "id": "open-runtime-adapter",
+  "target": "open-runtime",
+  "input_contract": "acl:agent-construct:1",
+  "outputs": ["system-prompt", "tool-schemas", "orchestration-loop", "deployment-configuration"],
+  "tool_mapping": {"filesystem": "ACL tool gateway", "command": "ACL governed command gateway", "browser": "ACL browser gateway"},
+  "host_specific": ["model endpoint", "inference configuration", "hosting and safety controls"],
+  "validation": {"shared_required": true, "adapter_required": true, "publish_requires_approval": true}
+}

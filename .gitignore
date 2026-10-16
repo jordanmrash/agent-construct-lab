@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+*.log
+*.tmp
+*.bak
+coverage/
+dist/
+build/
+Outputs/
+release4/release4-status.json

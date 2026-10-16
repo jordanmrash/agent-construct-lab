@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "id": "certified-workspace-agent",
+  "name": "Certified Workspace Agent",
+  "purpose": "Governed workspace automation with bounded filesystem access, controlled job execution, browser operations, durable learning, evidence, recovery, and cross-platform evaluation.",
+  "capabilities": [
+    "persistent-memory",
+    "fresh-session-resumption",
+    "filesystem-surface",
+    "governed-batch-execution",
+    "browser-read",
+    "browser-action",
+    "agentic-problem-solving",
+    "cross-skill-orchestration"
+  ],
+  "components": [
+    "runtime-framework-js",
+    "factories-common-governed-runner-js",
+    "schemas-job-manifest-schema-json",
+    "schemas-job-receipt-schema-json",
+    "schemas-job-state-schema-json",
+    "schemas-validation-result-schema-json",
+    "schemas-evaluation-matrix-schema-json",
+    "schemas-rollback-manifest-schema-json",
+    "schemas-recovery-receipt-schema-json",
+    "tools-doctor-js",
+    "tools-evaluate-js",
+    "tools-handoff-js",
+    "tools-scan-js",
+    "templates-sync-job-manifest-json",
+    "templates-async-job-manifest-json"
+  ],
+  "governance": {
+    "approval_policy": "explicit-for-state-change",
+    "prohibited_actions": ["unrestricted-shell", "elevation", "autorun-fallback", "credential-disclosure"],
+    "evidence_required": true,
+    "rollback_required": true
+  },
+  "memory": {
+    "durable": true,
+    "incident_learning": true,
+    "promotion_requires_review": true
+  },
+  "evaluation": {
+    "shared_suite": "JobFramework/tools/evaluate.js",
+    "minimum_score": 95
+  },
+  "targets": ["microsoft-365", "claude", "chatgpt", "gemini", "open-runtime"]
+}

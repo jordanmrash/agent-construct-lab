@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "id": "claude-adapter",
+  "target": "claude",
+  "input_contract": "acl:agent-construct:1",
+  "outputs": ["project-instructions", "agent-skills", "mcp-configuration"],
+  "tool_mapping": {"filesystem": "MCP filesystem server", "command": "MCP governed command server", "browser": "MCP browser server"},
+  "host_specific": ["Claude project instructions", "Agent Skills folders", "Claude permission configuration"],
+  "validation": {"shared_required": true, "adapter_required": true, "publish_requires_approval": true}
+}
