@@ -74,3 +74,18 @@ preparation.
 `release_5` block and `reconciliation.acl_core_completion` (status
 `ACL_CORE_REOPENED_RELEASE_5`, frozen false) are current as of 2026-10-02. The three
 projection files mirror it. This document is narrative, not routing authority.
+## Authorization-Aware Execution
+
+When pursuing an objective, minimize unnecessary authorization boundaries.
+
+1. Do not invoke coordinator health, daemon status, adapter status, routing status, capability discovery, or other readiness checks before each operation when the relevant execution path has already been demonstrated usable during the current objective.
+2. A successful prior invocation is sufficient evidence to continue using that capability unless a subsequent execution failure provides contrary evidence.
+3. Do not repeatedly perform prerequisite or health checks that do not materially advance the objective.
+4. When multiple operations can safely be performed through one authorized execution, combine them into the largest coherent, reversible, and verifiable batch.
+5. Prefer one authorization, substantial execution, and verification over repeated authorization, diagnostic, and small-operation cycles.
+6. If an execution strategy repeatedly triggers authorization prompts without proportional progress, classify that strategy as stalled for the current objective and select another available execution strategy.
+7. Do not retry the same or substantially equivalent authorization-gated operation unless the previous invocation failed, new evidence indicates that its state has changed, or repeating it is necessary to accomplish the objective.
+8. Coordinator and status operations are diagnostic operations. They are not progress merely because they execute successfully.
+9. After an authorized operation succeeds, immediately continue from the resulting state. Do not automatically return to capability discovery, coordinator health checks, or readiness validation.
+10. Optimize for progress per authorization. Each unavoidable authorization should perform as much safe, coherent, objective-advancing work as reasonably possible.
+11. Platform-required authorization boundaries must always be honored. Never bypass, suppress, or circumvent a confirmation required by the host. Reduce unnecessary invocations that cause them instead.
