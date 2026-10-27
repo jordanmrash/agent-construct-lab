@@ -1,0 +1,1 @@
+Public reference documentation. Synthetic checks do not establish live operation. [Source revision](https://github.com/jordanmrash/agent-construct-lab/tree/6c098d7add95c6dbd93df7dadea6bd7efd61ee46) | [Evidence limits](Evidence-and-Limitations)
