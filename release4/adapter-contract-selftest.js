@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const ROOT = process.env.COWORK_ROOT || path.resolve(__dirname, '..', '..');
-const DIR = path.join(ROOT, 'AgentConstructLab', 'release4');
+const DIR = __dirname;
 const targets = ['microsoft-365','claude','chatgpt','gemini','open-runtime'];
 const files = targets.map(t => path.join(DIR, t + '.adapter.json'));
 const results = [];
